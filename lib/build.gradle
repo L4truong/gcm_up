@@ -6,3 +6,4 @@ dependencies {
     compile 'com.googlecode.json-simple:json-simple:1.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.0'
 }
+apply plugin: 'com.google.gms.google-services'
