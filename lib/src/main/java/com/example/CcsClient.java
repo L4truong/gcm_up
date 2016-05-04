@@ -75,7 +75,7 @@ public class CcsClient {
 
     /// new: some additional instance and class members
     private static CcsClient sInstance = null;
-    private String mApiKey = "AIzaSyDuqUfDUwePX_IX1Xeoh8AeDhpZJVIJ-og";
+    private String mApiKey = "AIzaSyBXmau3x99l_PlVGs-WKfc5UfuS82j-Uvs";
     private String mProjectId = null;
     private boolean mDebuggable = false;
 
@@ -152,7 +152,7 @@ public class CcsClient {
     
     private CcsClient(String projectId, String apiKey, boolean debuggable) {
         this();
-        mApiKey = "AIzaSyDuqUfDUwePX_IX1Xeoh8AeDhpZJVIJ-og";
+        mApiKey = "AIzaSyBXmau3x99l_PlVGs-WKfc5UfuS82j-Uvs";
         mProjectId = projectId;
         mDebuggable = debuggable;
     }
@@ -397,7 +397,7 @@ public class CcsClient {
             }
         });
 
-        // Handle incoming packets
+        /* Handle incoming packets */
         connection.addPacketListener(packet -> {
             logger.log(Level.INFO, "Received: " + packet.toXML());
             System.out.print(packet.toXML());
@@ -436,9 +436,9 @@ public class CcsClient {
             try {
                 handleIncomingDataMessage(msg);
                 // Send ACK to CCS
-                String apiKey = "AIzaSyC_oi5v-QwyHirz_xbDzwcdcAROWrZ-xwc";
-                //Content content = createContent(msg);
-                //Post2Gcm.post(apiKey, content);
+                String apiKey = "AIzaSyBXmau3x99l_PlVGs-WKfc5UfuS82j-Uvs";
+                Content content = createContent(msg);
+                Post2Gcm.post(apiKey, content);
                 String ack = createJsonAck(msg.getFrom(), msg.getMessageId());
                 send(ack);
             }
@@ -460,10 +460,10 @@ public class CcsClient {
     }
 
     public static void main(String[] args) {
-        final String projectId = "243415698676";
+        final String projectId = "956723420177";
         final String password = "";
         //final String toRegId = "APA91bGtjDTQ3SAb69VfzW6FaBy6Wq-5KqX9T1qu7LX-DKHu8FNpqzgaoZ8oR4OQ8fRmues4q3rW7FgyrSB19l4RiTiIPyHNHjGXy3VpbbxlmgVZEmrTeO7uKDg0NRNHvPNt9VK9K9Ol";
-        final String toRegId ="";
+        final String toRegId ="APA91bGhm6U3I6A0Djvbqt6lAflpqgQ0VFKs1JeZKoWNeMwimHGJyEFHwOni-EVoFCm1mxlSKI8RUwHxJfQE05Wm9Yk_KfaCtukXu9MTZAkcvDWqiOzc93Io86YeZgxx2u9k4HZOmka08Rb4v9h5ecKnwCTVQJsG7Q";
         //final String toRegId = "APA91bGNKqkUQsqv3-Yjh2f84U8Z9v4z6hQ1XUy2g9pDztwGcB28SITCZFBPKgUGVJOvu-oYUyt--fdKiEuxq45vJRZjPYrvYUXQOe9Q0xmBpwofNUTjVNitQW3A1D16rlN0xeoszsZa";
         CcsClient ccsClient = CcsClient.prepareClient(projectId, password, true);
 
@@ -489,16 +489,16 @@ public class CcsClient {
 
     }
     }
-   /* public static Content createContent(CcsMessage msg ) {
+    public static Content createContent(CcsMessage msg ) {
         Content c = new Content();
 
         //c.addRegId("APA91bGNKqkUQsqv3-Yjh2f84U8Z9v4z6hQ1XUy2g9pDztwGcB28SITCZFBPKgUGVJOvu-oYUyt--fdKiEuxq45vJRZjPYrvYUXQOe9Q0xmBpwofNUTjVNitQW3A1D16rlN0xeoszsZa");
        // c.addRegId("APA91bGtjDTQ3SAb69VfzW6FaBy6Wq-5KqX9T1qu7LX-DKHu8FNpqzgaoZ8oR4OQ8fRmues4q3rW7FgyrSB19l4RiTiIPyHNHjGXy3VpbbxlmgVZEmrTeO7uKDg0NRNHvPNt9VK9K9Ol");
         System.out.println("herhehrehr");
-        c.addRegId("APA91bGB-ZbeyCtLP_QRNQE5zu4Y-1LgRlTFiIMh2vDrhtgVwL5vTo5DYiE_YFo4ftOjxk4Nihykt_LSTPL9T_7FX64I7EQoe-l_eQ_4-T36BwAdOgAioktNUE1fwFoaPe6fdzQ1Aayx");
+        c.addRegId("APA91bEgiz6P0fZsd1_0-pk2tZLkSJMUd7IQF5S503c2v7sWd3XrSt9gcsfVxA8BPL6dhskzRqhbWsAscLoKPUzaiqrv6wsbt6MGQMJbevIkdSapyhRQuZRwlRy3HMdXhNyneItKEOBA");
             String str = msg.getPayload().get("message");
         c.createData(str, "popop");
 
         return c;
-    }*/
+    }
 }

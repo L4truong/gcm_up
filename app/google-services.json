@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "459627891621",
-    "project_id": "default-demo-app-2-efb94"
+    "project_number": "956723420177",
+    "project_id": "gcm-up-e80ac"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:459627891621:android:27d689d63f1b7a06",
+        "mobilesdk_app_id": "1:776220287162:android:df4fbbcfb76fa204",
         "android_client_info": {
-          "package_name": "com.google.samples.quickstart.signin"
+          "package_name": "com.grokkingandroid.sampleapp.samples.gcm"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD45NdY15xLpKLIVtSwxlpw_0TaiCnC4qQ"
+          "current_key": "AIzaSyACDMVvZkyx5gi4XMLzLAG4HUQxgKy--Fw"
         }
       ],
       "services": {

@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -204,18 +205,29 @@ public class GcmDemoFragment extends DemoBaseFragment implements
    private void sendMessage() {
       Intent msgIntent = new Intent(getActivity(), GcmIntentService.class);
       msgIntent.setAction(Constants.ACTION_ECHO);
-      String msg;
+      /*String msg = "";
       if (!TextUtils.isEmpty(mTxtMsg.getText())) {
          msg = mTxtMsg.getText().toString();
          mTxtMsg.setText("");
       }
       else {
          msg = getActivity().getString(R.string.no_message);
+      }*/
+      String message[] = {"hello", "world", "cse", "110", "software", "engineering"};
+      //Handler handler = new Handler();
+      for( int index = 0; index < message.length; index++ ) {
+         String msg = message[index];
+         String msgTxt = getString(R.string.msg_sent, msg);
+         Crouton.showText(getActivity(), msgTxt, Style.INFO);
+         msgIntent.putExtra(Constants.KEY_MESSAGE_TXT, msg);
+         getActivity().startService(msgIntent);
+         /*handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+         }, 5000 * index);*/
       }
-      String msgTxt = getString(R.string.msg_sent, msg);
-      Crouton.showText(getActivity(), msgTxt, Style.INFO);            
-      msgIntent.putExtra(Constants.KEY_MESSAGE_TXT, msg);
-      getActivity().startService(msgIntent);
    }
 
     /**
